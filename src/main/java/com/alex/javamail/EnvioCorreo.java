@@ -37,9 +37,19 @@ public class EnvioCorreo extends HttpServlet {
         String destino = request.getParameter("textDestino");
         String asunto = request.getParameter("textAsunto");
         String mensaje = request.getParameter("textMensaje");
-        
-        String resultadoEnvio ="";
-        
+
+        String resultadoEnvio = "";
+        try {
+            PropiedadesCorreo.envioCorreo(host, puerto, usuario, clave, destino, asunto, mensaje);
+            resultadoEnvio = "El mensaje se envio correctamente";
+        } catch (Exception e) {
+            e.printStackTrace();
+            resultadoEnvio = "Error al enviar el correo " + e.getMessage();
+            System.out.println("Error" + e.toString());
+        } finally {
+            request.setAttribute("Mensaje", resultadoEnvio);
+            getServletContext().getRequestDispatcher("resultado.jsp").forward(request, response);
+        }
     }
 
 }
