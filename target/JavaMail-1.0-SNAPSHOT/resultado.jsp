@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menaje Resultado</title>
+        <title>Mensaje Resultado</title>
     </head>
     <body>
         <h1><%= request.getAttribute("Mensaje")%></h1>

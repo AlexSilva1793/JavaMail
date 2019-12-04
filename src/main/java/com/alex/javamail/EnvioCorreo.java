@@ -48,7 +48,7 @@ public class EnvioCorreo extends HttpServlet {
             System.out.println("Error" + e.toString());
         } finally {
             request.setAttribute("Mensaje", resultadoEnvio);
-            getServletContext().getRequestDispatcher("resultado.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/resultado.jsp").forward(request, response);
         }
     }
 
